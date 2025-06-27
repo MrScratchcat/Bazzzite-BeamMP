@@ -48,6 +48,7 @@ distrobox enter "${DISTROBOX_NAME}" -- bash -c "
     cmake --build bin --parallel --config Release
     
     echo 'Build completed successfully!'
-    echo 'To start BeamMP, run:'
-    echo "To start BeamMP go to: ${HOME}/BeamMP-Launcher/bin/BeamMP-Launcher"
 "
+echo "./BeamMP-Launcher" > ${HOME}/BeamMP-Launcher/bin/run.sh
+chmod +x ${HOME}/BeamMP-Launcher/bin/run.sh
+echo "To start BeamMP go to: ${HOME}/BeamMP-Launcher/bin/BeamMP-Launcher"
