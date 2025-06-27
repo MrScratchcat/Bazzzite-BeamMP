@@ -49,9 +49,5 @@ distrobox enter "${DISTROBOX_NAME}" -- bash -c "
     
     echo 'Build completed successfully!'
     echo 'To start BeamMP, run:'
-    echo \"distrobox enter ${DISTROBOX_NAME} -- \$HOME/BeamMP-Launcher/bin/BeamMP-Launcher\"
+    echo "To start BeamMP go to: ${HOME}/BeamMP-Launcher/bin/BeamMP-Launcher"
 "
-
-echo "Setup complete! BeamMP Launcher has been built in the Arch distrobox."
-echo "To run BeamMP Launcher, use:"
-echo "distrobox enter ${DISTROBOX_NAME} -- ~/BeamMP-Launcher/bin/BeamMP-Launcher"
