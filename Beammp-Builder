@@ -49,6 +49,7 @@ distrobox enter "${DISTROBOX_NAME}" -- bash -c "
     
     echo 'Build completed successfully!'
 "
-echo "./BeamMP-Launcher" > ${HOME}/BeamMP-Launcher/bin/run.sh
+echo "#!/bin/bash" > ${HOME}/BeamMP-Launcher/bin/run.sh
+echo "./BeamMP-Launcher" >> ${HOME}/BeamMP-Launcher/bin/run.sh
 chmod +x ${HOME}/BeamMP-Launcher/bin/run.sh
 echo "To start BeamMP go to: ${HOME}/BeamMP-Launcher/bin/BeamMP-Launcher"
