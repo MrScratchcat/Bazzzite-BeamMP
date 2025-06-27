@@ -20,7 +20,7 @@ else
 fi
 
 echo "Entering distrobox and building BeamMP Launcher..."
-
+cd
 # Execute the build commands inside the distrobox
 distrobox enter "${DISTROBOX_NAME}" -- bash -c "
     set -e
