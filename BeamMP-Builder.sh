@@ -4,6 +4,13 @@
 # This script checks for an existing Arch distrobox, creates one if needed,
 # and builds BeamMP Launcher with all dependencies
 
+if command -v distrobox &> /dev/null; then
+    echo "distrobox is installed."
+else
+    zenity --error --text="distrobox is not installed. Please install it first." || echo "distrobox is not installed. Please install it first."
+    exit 1
+fi
+
 set -e  # Exit on any error
 
 DISTROBOX_NAME="arch"
@@ -21,6 +28,7 @@ fi
 
 echo "Entering distrobox and building BeamMP Launcher..."
 cd
+
 # Execute the build commands inside the distrobox
 distrobox enter "${DISTROBOX_NAME}" -- bash -c "
     set -e
@@ -49,7 +57,8 @@ distrobox enter "${DISTROBOX_NAME}" -- bash -c "
     
     echo 'Build completed successfully!'
 "
+
 echo "#!/bin/bash" > ${HOME}/BeamMP.sh
 echo "cd ${HOME}/BeamMP-Launcher/bin/ && ./BeamMP-Launcher" >> ${HOME}/BeamMP.sh
 chmod +x BeamMP.sh
-echo "To start BeamMP go to: ${HOME}/BeamMP.sh"
+zenity --info --text="BeamMP Launcher has been built successfully and is ready to use. To launch it, run ${HOME}/BeamMP.sh or go to ${HOME}/BeamMP-Launcher/bin/ and run ./BeamMP-Launcher" || echo "BeamMP Launcher has been built successfully and is ready to use."
